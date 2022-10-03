@@ -26,8 +26,8 @@ int Postfix_Evaluator::eval(const std::string& expression) {
         if (isdigit(next_char)) {
             tokens.putback(next_char);
             int value;
-            tokens >> value;
-            operand_stack.push(value);
+            tokens >> value;  // convert string into int value
+            operand_stack.push(value); // put the value on the operand stack
         } else if (is_operator(next_char)) {
             int result = eval_op(next_char);
             operand_stack.push(result);
